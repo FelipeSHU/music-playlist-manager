@@ -1,0 +1,15 @@
+C:\Users\javie\Documents\GitHub\music-playlist-manager\playlistmanager\playlistmanager\bin\Debug\net8.0\playlistmanager.exe
+C:\Users\javie\Documents\GitHub\music-playlist-manager\playlistmanager\playlistmanager\bin\Debug\net8.0\playlistmanager.deps.json
+C:\Users\javie\Documents\GitHub\music-playlist-manager\playlistmanager\playlistmanager\bin\Debug\net8.0\playlistmanager.runtimeconfig.json
+C:\Users\javie\Documents\GitHub\music-playlist-manager\playlistmanager\playlistmanager\bin\Debug\net8.0\playlistmanager.dll
+C:\Users\javie\Documents\GitHub\music-playlist-manager\playlistmanager\playlistmanager\bin\Debug\net8.0\playlistmanager.pdb
+C:\Users\javie\Documents\GitHub\music-playlist-manager\playlistmanager\playlistmanager\obj\Debug\net8.0\playlistmanager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\javie\Documents\GitHub\music-playlist-manager\playlistmanager\playlistmanager\obj\Debug\net8.0\playlistmanager.AssemblyInfoInputs.cache
+C:\Users\javie\Documents\GitHub\music-playlist-manager\playlistmanager\playlistmanager\obj\Debug\net8.0\playlistmanager.AssemblyInfo.cs
+C:\Users\javie\Documents\GitHub\music-playlist-manager\playlistmanager\playlistmanager\obj\Debug\net8.0\playlistmanager.csproj.CoreCompileInputs.cache
+C:\Users\javie\Documents\GitHub\music-playlist-manager\playlistmanager\playlistmanager\obj\Debug\net8.0\playlistmanager.sourcelink.json
+C:\Users\javie\Documents\GitHub\music-playlist-manager\playlistmanager\playlistmanager\obj\Debug\net8.0\playlistmanager.dll
+C:\Users\javie\Documents\GitHub\music-playlist-manager\playlistmanager\playlistmanager\obj\Debug\net8.0\refint\playlistmanager.dll
+C:\Users\javie\Documents\GitHub\music-playlist-manager\playlistmanager\playlistmanager\obj\Debug\net8.0\playlistmanager.pdb
+C:\Users\javie\Documents\GitHub\music-playlist-manager\playlistmanager\playlistmanager\obj\Debug\net8.0\playlistmanager.genruntimeconfig.cache
+C:\Users\javie\Documents\GitHub\music-playlist-manager\playlistmanager\playlistmanager\obj\Debug\net8.0\ref\playlistmanager.dll
