@@ -2,9 +2,10 @@
 
 namespace playlistmanager {
     internal class Program {
+
         private static void Main(string[] args) {
             //Read songlist from file and add them as Songs to Playlist
-            string path = "C:\\Users\\javie\\Documents\\GitHub\\music-playlist-manager\\playlistmanager\\playlistmanager\\songs_dataset.csv";
+            string path = "songs_dataset.csv";
             //have to fix the path issue later
             StreamReader reader = null;
             if (File.Exists(path)) {
@@ -25,15 +26,25 @@ namespace playlistmanager {
                 }
                 reader.Close();
                 playlist.Display();
+                Thread thread = new Thread(()=>Commands(playlist));
+                thread.Start();
                 playlist.Play();
-                System.Threading.Thread.Sleep(10000);
-                playlist.Pause();
-                System.Threading.Thread.Sleep(2000);
+                System.Threading.Thread.Sleep(12000);
                 playlist.Play();
+                //timer resets and starts again at first song
 
-            } else { Console.WriteLine("Error finding file");}  
+            } else { Console.WriteLine("Error finding file");}
+
 
 
         }
+        static void Commands(Playlist<string> playlist) {
+            System.Threading.Thread.Sleep(10000);
+            playlist.Pause();
+            playlist.Skip();
+        }
+
+
+
     }
 }

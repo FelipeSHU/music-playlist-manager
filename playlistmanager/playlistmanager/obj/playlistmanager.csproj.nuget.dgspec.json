@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\javie\\Documents\\GitHub\\music-playlist-manager\\playlistmanager\\playlistmanager\\playlistmanager.csproj": {}
+    "C:\\Users\\felip\\OneDrive\\Documents\\Visual Studio 2022\\music-playlist-manager\\playlistmanager\\playlistmanager\\playlistmanager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\javie\\Documents\\GitHub\\music-playlist-manager\\playlistmanager\\playlistmanager\\playlistmanager.csproj": {
+    "C:\\Users\\felip\\OneDrive\\Documents\\Visual Studio 2022\\music-playlist-manager\\playlistmanager\\playlistmanager\\playlistmanager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\javie\\Documents\\GitHub\\music-playlist-manager\\playlistmanager\\playlistmanager\\playlistmanager.csproj",
+        "projectUniqueName": "C:\\Users\\felip\\OneDrive\\Documents\\Visual Studio 2022\\music-playlist-manager\\playlistmanager\\playlistmanager\\playlistmanager.csproj",
         "projectName": "playlistmanager",
-        "projectPath": "C:\\Users\\javie\\Documents\\GitHub\\music-playlist-manager\\playlistmanager\\playlistmanager\\playlistmanager.csproj",
-        "packagesPath": "C:\\Users\\javie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\javie\\Documents\\GitHub\\music-playlist-manager\\playlistmanager\\playlistmanager\\obj\\",
+        "projectPath": "C:\\Users\\felip\\OneDrive\\Documents\\Visual Studio 2022\\music-playlist-manager\\playlistmanager\\playlistmanager\\playlistmanager.csproj",
+        "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\felip\\OneDrive\\Documents\\Visual Studio 2022\\music-playlist-manager\\playlistmanager\\playlistmanager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\javie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -60,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
