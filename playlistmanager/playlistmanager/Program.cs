@@ -26,12 +26,12 @@ namespace playlistmanager {
                 }
                 reader.Close();
                 playlist.Display();
-                Thread thread = new Thread(()=>Commands(playlist));
+
+                /*Thread thread = new Thread(()=>Commands(playlist));
                 thread.Start();
                 playlist.Play();
-                System.Threading.Thread.Sleep(12000);
-                playlist.Play();
-                //timer resets and starts again at first song
+                */
+
 
             } else { Console.WriteLine("Error finding file");}
 
@@ -39,9 +39,8 @@ namespace playlistmanager {
 
         }
         static void Commands(Playlist<string> playlist) {
-            System.Threading.Thread.Sleep(10000);
-            playlist.Pause();
-            playlist.Skip();
+            //enter commands to control playlist here 
+
         }
 
 
