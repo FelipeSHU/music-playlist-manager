@@ -27,23 +27,23 @@ namespace playlistmanager {
                 reader.Close();
                 playlist.Display();
 
-                /*Thread thread = new Thread(()=>Commands(playlist));
+                Thread thread = new Thread(()=>PlayThread(playlist));
                 thread.Start();
-                playlist.Play();
-                */
 
+                thread.Join();
+                
 
             } else { Console.WriteLine("Error finding file");}
 
 
 
         }
-        static void Commands(Playlist<string> playlist) {
-            //enter commands to control playlist here 
-
+        static void PlayThread(Playlist<string> playlist) {
+            //
+            playlist.Play();
         }
 
-
+        
 
     }
 }
