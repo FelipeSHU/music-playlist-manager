@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
+using System.Linq.Expressions;
 
 namespace playlistmanager {
     internal class Playlist<T> {
@@ -10,6 +12,7 @@ namespace playlistmanager {
         bool play = false;
         bool loop = false;
         int timer = 0;
+        Thread thread;
         public Playlist() {
             head = null;
             tail = null;
@@ -17,6 +20,7 @@ namespace playlistmanager {
             bool play = false;
             bool loop = false;
             int timer = 0;
+            thread = null;
         }
         public void Append(T title, T artist, T album, int duration) {
             var newSong = new Song<T>(title, artist, album, duration);
@@ -41,42 +45,59 @@ namespace playlistmanager {
             }
         }
         public void Play() {
-            if (head == null) {
+            if (head == null || tail == null) {
                 Console.WriteLine("Playlist is empty. Cannot play.");
                 return;
             }
             current = head;
             play = true;
-
+            thread = new Thread(()=>PlayLoop());
+            thread.Start();
+        }
+  
+        private void PlayLoop() {
             while (current != null) {
                 timer = 0;
-
-                while (timer < current.duration) {
-                    Console.Write($"Playing:{current.title} || {current.artist} || Time: " + timer + "s / " + current.duration + "s\r");
-                    if (play) {
-                        timer++;
-                        System.Threading.Thread.Sleep(1000);
+                try {
+                    while (timer < current.duration) {
+                        Console.Write($"Playing:{current.title} || {current.artist} || Time: " + timer + "s / " + current.duration + "s\r");
+                        if (play) {
+                            timer++;
+                            System.Threading.Thread.Sleep(1000);
+                        } else {
+                            Thread.Sleep(Timeout.InfiniteTimeSpan);
+                            
+                        }
                     }
-                }
-                if (!loop) {
-                    current = current.next;
+                    if (!loop) {
+                        current = current.next;
+                    }
+                } catch (ThreadInterruptedException) {
+                    
                 }
             }
-
+            
         }
         public void Pause() {
             if (current != null) {
                 play = !play;
+                if (play) {
+                    thread.Interrupt();
+                }
             } else {
                 Console.WriteLine("\nNo song is currently selected.");
             }
         }
         public void Stop() {
-            play = false;
-            current = head;
-            timer = 0;
-
+            if(thread.IsAlive){
+                    //i should ask for help on threads tomorrow to see if i can kill the thread here.
+                    play = false;
+                    current = head;
+                    timer = 0;
+            }
+                
         }
+        
         public void Loop() {
             loop = !loop;
         }

@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = playlistmanager
-build_property.ProjectDir = C:\Users\felip\OneDrive\Documents\Visual Studio 2022\music-playlist-manager\playlistmanager\playlistmanager\
+build_property.ProjectDir = C:\Users\javie\Documents\GitHub\music-playlist-manager\playlistmanager\playlistmanager\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
