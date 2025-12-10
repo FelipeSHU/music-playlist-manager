@@ -22,7 +22,7 @@ namespace playlistmanager {
             int timer = 0;
             thread = null;
         }
-        public void Append(T title, T artist, T album, int duration) {
+        public void Append(string title, string artist, string album, int duration) {
             var newSong = new Song<T>(title, artist, album, duration);
             if (head == null) {
                 head = newSong;
@@ -51,10 +51,10 @@ namespace playlistmanager {
             }
             current = head;
             play = true;
-            thread = new Thread(()=>PlayLoop());
+            thread = new Thread(() => PlayLoop());
             thread.Start();
         }
-  
+
         private void PlayLoop() {
             while (current != null) {
                 timer = 0;
@@ -66,17 +66,17 @@ namespace playlistmanager {
                             System.Threading.Thread.Sleep(1000);
                         } else {
                             Thread.Sleep(Timeout.InfiniteTimeSpan);
-                            
+
                         }
                     }
                     if (!loop) {
                         current = current.next;
                     }
                 } catch (ThreadInterruptedException) {
-                    
+
                 }
             }
-            
+
         }
         public void Pause() {
             if (current != null) {
@@ -89,15 +89,15 @@ namespace playlistmanager {
             }
         }
         public void Stop() {
-            if(thread.IsAlive){
-                    //i should ask for help on threads tomorrow to see if i can kill the thread here.
-                    play = false;
-                    current = head;
-                    timer = 0;
+            if (thread.IsAlive) {
+                //i should ask for help on threads tomorrow to see if i can kill the thread here.
+                play = false;
+                current = head;
+                timer = 0;
             }
-                
+
         }
-        
+
         public void Loop() {
             loop = !loop;
         }
@@ -109,7 +109,7 @@ namespace playlistmanager {
                     return;
                 } else if (current.next != null) {
                     current = current.next;
-                    timer = 0; 
+                    timer = 0;
                 }
 
             } else {
@@ -133,14 +133,14 @@ namespace playlistmanager {
         //problem with the delete function is that if the song youre currently listening to is deleted, it breaks the play function.
         public void Delete(string name) {
             var temp = head;
-            if(temp == null) {
+            if (temp == null) {
                 Console.WriteLine("\nPlaylist is empty.");
                 return;
             }
             if (temp != null) {
                 while (temp != null) {
                     if (temp.title.Equals(name)) {
-                        if (temp.next == null) { 
+                        if (temp.next == null) {
                             temp.prev.next = null;
                             tail = temp.prev;
                         }
@@ -158,12 +158,32 @@ namespace playlistmanager {
                     }
                     temp = temp.next;
                 }
-                if (temp != null) { 
+                if (temp != null) {
                     Console.WriteLine("\nSong not found in playlist.");
                     temp = null;
                 }
             }
         }
+
+
+        //Merge Sorting Below
+        public void TitleSort() {
+            head = head.AlphaMergeSort(head);
+            
+            var temp = head;
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            tail = temp;
+        }
+        public void DurationSort() {
+            head = head.IntMergeSort(head);
+            
+            var temp = head;
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            tail = temp;
+        }
     }
-    
 }

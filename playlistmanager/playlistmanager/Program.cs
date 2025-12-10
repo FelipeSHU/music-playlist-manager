@@ -26,16 +26,15 @@ namespace playlistmanager {
                 }
                 reader.Close();
                 playlist.Display();
-                playlist.Play();
-                Thread.Sleep(2000);
-                playlist.Pause();
-                Thread.Sleep(2000);
-                playlist.Pause();
-                Thread.Sleep(2000);
-                playlist.Skip();
-                Thread.Sleep(2000);
-                playlist.Stop();
-                
+                playlist.TitleSort();
+                Console.WriteLine("After sorting by title:");
+                playlist.Display();
+                playlist.DurationSort();
+                Console.WriteLine("After sorting by duration:");
+                playlist.Display();
+
+
+
 
                 /*
                 Thread thread = new Thread(()=>PlayThread(playlist));
