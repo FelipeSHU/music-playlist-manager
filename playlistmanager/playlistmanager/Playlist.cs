@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Linq.Expressions;
+using System.ComponentModel.DataAnnotations;
 
 namespace playlistmanager {
     internal class Playlist<T> {
@@ -130,7 +131,7 @@ namespace playlistmanager {
                 Console.WriteLine("\nNo previous song available.");
             }
         }
-        //problem with the delete function is that if the song youre currently listening to is deleted, it breaks the play function.
+        //problem with the delete function is that if the song youre currently listening to is deleted, it breaks the play function. should add an if case for it.
         public void Delete(string name) {
             var temp = head;
             if (temp == null) {
@@ -162,6 +163,54 @@ namespace playlistmanager {
                     Console.WriteLine("\nSong not found in playlist.");
                     temp = null;
                 }
+            }
+        }
+        public void Delete(int index) {
+            var temp = head;
+            if (temp == null) {
+                Console.WriteLine("\nPlaylist is empty.");
+                return;
+            }
+            if (index < Length()) {
+                for (int i = 0; i < index; i++) {
+                    temp = temp.next;
+                }
+                if (temp.next == null) {
+                    temp.prev.next = null;
+                    tail = temp.prev;
+                }
+                if (temp.prev == null) {
+                    temp.next.prev = null;
+                    head = temp.next;
+                }
+                if (temp.next != null && temp.prev != null) {
+                    temp.prev.next = temp.next;
+                    temp.next.prev = temp.prev;
+                }
+                temp = null;
+            } else {
+                Console.WriteLine("\nIndex out of bounds.");
+            }
+        }
+        public int Length() {
+            int count = 0;
+            var temp = head;
+            while (temp != null) {
+                count++;
+                temp = temp.next;
+            }
+            return count;
+        }
+        public Song<T> Search(int index) {
+            if (head != null && index < Length()) {
+                var temp = head;
+                for (int i = 0; i < index; i++) { 
+                    temp = temp.next;
+                }
+                return temp;
+
+            } else {
+                return null;
             }
         }
 

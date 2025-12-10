@@ -26,12 +26,14 @@ namespace playlistmanager {
                 }
                 reader.Close();
                 playlist.Display();
-                playlist.TitleSort();
-                Console.WriteLine("After sorting by title:");
+
+                playlist = Shuffle(playlist);
                 playlist.Display();
-                playlist.DurationSort();
-                Console.WriteLine("After sorting by duration:");
+                Console.WriteLine("Re-Shuffled Playlist:");
+                playlist = Shuffle(playlist);
                 playlist.Display();
+
+
 
 
 
@@ -47,6 +49,20 @@ namespace playlistmanager {
 
 
 
+        }
+
+        private static Playlist<string> Shuffle(Playlist<string> playlist) { 
+            var templist = new Playlist<string>();
+            Random rand = new Random();
+            for (int i = playlist.Length()-1; i > 0; i-- ) {
+                int r = rand.Next(0, i);
+                var song = playlist.Search(r);
+                templist.Append(song.title, song.artist, song.album, song.duration);
+                playlist.Delete(r);
+
+            }
+            
+            return templist;
         }
         /*
         static void PlayThread(Playlist<string> playlist) {
