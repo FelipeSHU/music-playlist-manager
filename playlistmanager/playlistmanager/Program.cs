@@ -25,25 +25,17 @@ namespace playlistmanager {
                     playlist.Append(title, artist, album, duration);
                 }
                 reader.Close();
+                playlist.Play();
+                        
+                playlist.Shuffle();
                 playlist.Display();
-
-                playlist = Shuffle(playlist);
+                playlist.TitleSort();
                 playlist.Display();
-                Console.WriteLine("Re-Shuffled Playlist:");
-                playlist = Shuffle(playlist);
-                playlist.Display();
+                Thread.Sleep(5000);
+                playlist.Skip();
+                Thread.Sleep(5000);
+                playlist.Skip();
 
-
-
-
-
-
-                /*
-                Thread thread = new Thread(()=>PlayThread(playlist));
-                thread.Start();
-
-                thread.Join();
-                */
 
             } else { Console.WriteLine("Error finding file");}
 
@@ -51,25 +43,6 @@ namespace playlistmanager {
 
         }
 
-        private static Playlist<string> Shuffle(Playlist<string> playlist) { 
-            var templist = new Playlist<string>();
-            Random rand = new Random();
-            for (int i = playlist.Length()-1; i > 0; i-- ) {
-                int r = rand.Next(0, i);
-                var song = playlist.Search(r);
-                templist.Append(song.title, song.artist, song.album, song.duration);
-                playlist.Delete(r);
-
-            }
-            
-            return templist;
-        }
-        /*
-        static void PlayThread(Playlist<string> playlist) {
-            //
-            playlist.Play();
-        }
-        */
         
 
     }
