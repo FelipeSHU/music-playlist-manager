@@ -6,7 +6,7 @@ namespace playlistmanager {
         private static void Main(string[] args) {
             //Read songlist from file and add them as Songs to Playlist
             string path = "songs_dataset.csv";
-            //have to fix the path issue later
+            //have to fix the path issue later => fixed
             StreamReader reader = null;
             if (File.Exists(path)) {
                 reader = new StreamReader(path);
@@ -25,22 +25,22 @@ namespace playlistmanager {
                     playlist.Append(title, artist, album, duration);
                 }
                 reader.Close();
+                playlist.Play();
+                        
+                playlist.Shuffle();
                 playlist.Display();
+                playlist.TitleSort();
+                playlist.Display();
+                Thread.Sleep(5000);
+                playlist.Skip();
+                Thread.Sleep(5000);
+                playlist.Skip();
 
-                Thread thread = new Thread(()=>PlayThread(playlist));
-                thread.Start();
-
-                thread.Join();
-                
 
             } else { Console.WriteLine("Error finding file");}
 
 
 
-        }
-        static void PlayThread(Playlist<string> playlist) {
-            //
-            playlist.Play();
         }
 
         
